@@ -1,0 +1,15 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Bo's http2 push-based video streaming",
+  "main": "h2_push_server.js",
+  "scripts": {
+    "test": "sudo node h2_push_server.js"
+  },
+  "author": "bo zhang",
+  "license": "ISC",
+  "devDependencies": {
+    "http2": "^3.3.7",
+    "path": "^0.12.7"
+  }
+}
