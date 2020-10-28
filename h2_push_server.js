@@ -24,7 +24,8 @@ const sendFile = (stream, fileName) => {
 
         let headers = {
                 "content-type": mime.getType(fileName),
-                "cache-control": "no-cache"
+                "cache-control": "no-cache",
+		"Access-Control-Allow-Origin": '*'
         };
 
         stream.respondWithFD(fd, headers);
@@ -33,7 +34,7 @@ const sendFile = (stream, fileName) => {
 function pushFile(stream, path) {
         stream.pushStream({ [HTTP2_HEADER_PATH]: path }, (pushStream) => {
              	const file = utils.getFile(path);
-                pushStream.respondWithFD(file.content, { ...file.headers, [HTTP2_HEADER_CACHE_CONTROL]: 'no-cache' });
+                pushStream.respondWithFD(file.content, { ...file.headers, [HTTP2_HEADER_CACHE_CONTROL]: 'no-cache', "Access-Control-Allow-Origin": '*' });
         });
 }
 
